@@ -24,6 +24,12 @@ sh "docker tag cynexam:version1 cwairoto/devops-exam:version1"
 sh "docker push cwairoto/devops-exam:version1"
 }
 
+stage('Deploy (Docker run the image)')
+{
+sh "docker run -d -p 6655:80/tcp cynr:version1"
+}
+
+
 
 stage('Apply changes to the environment')
 {
